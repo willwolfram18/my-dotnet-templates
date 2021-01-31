@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:$DockerTag$ AS build
 
 ARG MSBuildConfiguration=Debug
 ARG Version=1.0.0
@@ -10,7 +10,7 @@ WORKDIR "/app/WebApi"
 RUN dotnet restore
 RUN dotnet publish --configuration ${MSBuildConfiguration} -p:Version="${Version}" --output /app/publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:3.1-alpine
+FROM mcr.microsoft.com/dotnet/aspnet:$DockerTag$
 
 COPY --from=build "/app/publish" "/app"
 

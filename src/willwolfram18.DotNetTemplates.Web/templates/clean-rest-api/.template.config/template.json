@@ -101,6 +101,23 @@
             "datatype": "bool",
             "description": "If specified, skips the automatic restore of the project on create.",
             "defaultValue": "false"
+        },
+        "DockerImageTag": {
+            "type": "generated",
+            "generator": "switch",
+            "parameters": {
+                "cases": [
+                    {
+                        "condition": "(framework == \"netcoreapp3.1\")",
+                        "value": "3.1-alpine"
+                    },
+                    {
+                        "condition": "(framework == \"net5.0\")",
+                        "value": "5.0-alpine"
+                    }
+                ]
+            },
+            "replaces": "$DockerTag$"
         }
     },
     "postActions": [
