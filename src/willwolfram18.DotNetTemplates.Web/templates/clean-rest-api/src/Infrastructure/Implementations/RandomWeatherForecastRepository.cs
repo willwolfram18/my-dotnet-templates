@@ -18,13 +18,23 @@ namespace $AppName$.Infrastructure.Implementations
 
         public Task<IEnumerable<WeatherForecast>> GetWeatherForecastAsync(int numDays)
         {
-            IEnumerable<WeatherForecast> forecasts = Enumerable.Range(1, numDays).Select(index => new WeatherForecast(
-                DateTime.Now.AddDays(index),
-                Rng.Next(-20, 55)
+            IEnumerable<WeatherForecast> forecasts = Enumerable.Range(1, numDays).Select(index =>
+#if (IsNetCore31)
+                new WeatherForecast(
+                    DateTime.Now.AddDays(index),
+                    Rng.Next(-20, 55),
+                    Summaries[Rng.Next(Summaries.Length)]
+                )
+#else
+                new WeatherForecast(
+                    DateTime.Now.AddDays(index),
+                    Rng.Next(-20, 55)
+                )
+                {
+                    Summary = Summaries[Rng.Next(Summaries.Length)]
+                }
+#endif
             )
-            {
-                Summary = Summaries[Rng.Next(Summaries.Length)]
-            })
             .ToArray();
 
             return new ValueTask<IEnumerable<WeatherForecast>>(forecasts).AsTask();

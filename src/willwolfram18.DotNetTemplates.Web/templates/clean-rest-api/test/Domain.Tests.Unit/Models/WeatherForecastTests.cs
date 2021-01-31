@@ -15,7 +15,12 @@ namespace $AppName$.Domain.Tests.Unit.Models
             const int temperature = 37;
 
             // When creating a weather forecast...
+#if (IsNetCore31)
+            var model = new WeatherForecast(forecastDate, temperature, null);
+#else
             var model = new WeatherForecast(forecastDate, temperature);
+#endif
+
 
             // Then the date and temperature in Celcius should match the parameters.
             model.Date.Should().Be(forecastDate);
@@ -30,7 +35,11 @@ namespace $AppName$.Domain.Tests.Unit.Models
             const int temperatureInCelcius = 28;
 
             // When creating a weather forecast with that temperature...
+#if (IsNetCore31)
+            var model = new WeatherForecast(DateTime.Today, temperatureInCelcius, null);
+#else
             var model = new WeatherForecast(DateTime.Today, temperatureInCelcius);
+#endif
 
             // Then the temperature in Fahrenheit is the converted temperature in Celcius.
             model.TemperatureF.Should().Be(ConvertToFahrenheit(temperatureInCelcius));
@@ -43,10 +52,14 @@ namespace $AppName$.Domain.Tests.Unit.Models
             const string expectedSummary = "This is the weather summary.";
 
             // When creating a weather forecast...
-            var model = new WeatherForecast(DateTime.Now, 33)
+#if (IsNetCore31)
+            var model = new WeatherForecast(DateTime.Today, 33, expectedSummary);
+#else
+            var model = new WeatherForecast(DateTime.Today, 33)
             {
                 Summary = expectedSummary
             };
+#endif
 
             // Then the summary matches.
             model.Summary.Should().Be(expectedSummary);

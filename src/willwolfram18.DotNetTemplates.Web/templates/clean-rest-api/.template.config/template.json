@@ -45,17 +45,10 @@
                 {
                     "choice": "netcoreapp3.1",
                     "description": "Target .NET Core 3.1"
-                },
-                {
-                    "choice": "netcoreapp3.0",
-                    "description": "Target .NET Core 3.0"
-                },
-                {
-                    "choice": "netcoreapp2.1",
-                    "description": "Target .NET Core 2.1"
                 }
             ],
-            "defaultValue": "net5.0"
+            "defaultValue": "net5.0",
+            "replaces": "net5.0_app"
         },
         "HttpPort": {
             "type": "parameter",
@@ -96,6 +89,11 @@
                 "fallbackVariableName": "HttpsPortGenerated"
             },
             "replaces": "44300"
+        },
+        "IsNetCore31": {
+            "type": "computed",
+            "value": "(framework == \"netcoreapp3.1\")",
+            "replaces": "testing3.1"
         }
     }
 }

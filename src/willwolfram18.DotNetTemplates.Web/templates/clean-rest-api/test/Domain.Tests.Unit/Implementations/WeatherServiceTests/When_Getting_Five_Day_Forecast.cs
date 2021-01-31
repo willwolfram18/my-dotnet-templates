@@ -55,14 +55,23 @@ namespace $AppName$.Domain.Tests.Unit.Implementations.WeatherServiceTests
 
         private static List<WeatherForecast> CreateFakeWeatherForecasts(int numForecasts)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast(
-                DateTime.Now.AddDays(index),
-                index
-            )
-            {
-                Summary = $"Summary {index}"
-            })
-            .ToList();
+            return Enumerable.Range(1, 5).Select(index =>
+#if (IsNetCore31)
+                new WeatherForecast(
+                    DateTime.Now.AddDays(index),
+                    index,
+                    $"Summary {index}"
+                )
+#else
+                new WeatherForecast(
+                    DateTime.Now.AddDays(index),
+                    index
+                )
+                {
+                    Summary = $"Summary {index}"
+                }
+#endif
+            ).ToList();
         }
     }
 }
