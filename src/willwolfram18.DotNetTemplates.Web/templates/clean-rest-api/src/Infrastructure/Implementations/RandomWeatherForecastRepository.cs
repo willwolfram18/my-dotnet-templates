@@ -11,7 +11,7 @@ namespace $AppName$.Infrastructure.Implementations
     {
         private static readonly Random Rng = new Random();
 
-        private static readonly string[] Summaries = new[]
+        private static readonly string?[] Summaries = new[]
         {
             null, "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
