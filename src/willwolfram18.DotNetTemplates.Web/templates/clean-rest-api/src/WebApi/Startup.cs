@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -10,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 
 namespace $AppName$.WebApi
 {
@@ -26,11 +26,24 @@ namespace $AppName$.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+
+            services.AddVersionedApiExplorer(versionedApiExplorerSettings =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
+                versionedApiExplorerSettings.GroupNameFormat = "'v'VVV";
+                versionedApiExplorerSettings.AssumeDefaultVersionWhenUnspecified = true;
+                versionedApiExplorerSettings.SubstituteApiVersionInUrl = true;
+            }).AddApiVersioning(apiVersioningSettings =>
+            {
+                apiVersioningSettings.DefaultApiVersion = new ApiVersion(1, 0);
+                apiVersioningSettings.AssumeDefaultVersionWhenUnspecified = true;
+                apiVersioningSettings.ReportApiVersions = true;
+            });
+
+            services.AddOpenApiDocument(openApiSettings =>
+            {
+                openApiSettings.Title = "$AppName$.WebApi";
+                openApiSettings.Version = FileVersionInfo.GetVersionInfo(typeof(Startup).Assembly.Location).ProductVersion;
             });
         }
 
@@ -40,11 +53,12 @@ namespace $AppName$.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
             }
 
             app.UseHttpsRedirection();
+
+            app.UseOpenApi()
+                .UseSwaggerUi3();
 
             app.UseRouting();
 
