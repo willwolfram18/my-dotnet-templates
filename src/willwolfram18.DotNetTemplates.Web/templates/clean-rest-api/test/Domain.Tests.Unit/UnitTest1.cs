@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Domain.Tests.Unit
+namespace $Company$.$Team$.$AppName$.Domain.Tests.Unit
 {
     public class Tests
     {

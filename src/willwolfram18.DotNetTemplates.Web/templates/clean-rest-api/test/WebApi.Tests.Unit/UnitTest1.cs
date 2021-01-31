@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace WebApi.Tests.Unit
+namespace $Company$.$Team$.$AppName$.WebApi.Tests.Unit
 {
     public class Tests
     {

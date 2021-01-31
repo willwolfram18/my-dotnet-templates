@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApi
+namespace $Company$.$Team$.$AppName$.WebApi
 {
     public class WeatherForecast
     {
