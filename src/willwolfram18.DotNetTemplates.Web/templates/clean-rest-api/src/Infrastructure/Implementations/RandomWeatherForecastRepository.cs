@@ -18,7 +18,7 @@ namespace $AppName$.Infrastructure.Implementations
 
         public Task<IEnumerable<WeatherForecast>> GetWeatherForecastAsync(int numDays)
         {
-            IEnumerable<WeatherForecast> forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast(
+            IEnumerable<WeatherForecast> forecasts = Enumerable.Range(1, numDays).Select(index => new WeatherForecast(
                 DateTime.Now.AddDays(index),
                 Rng.Next(-20, 55)
             )
