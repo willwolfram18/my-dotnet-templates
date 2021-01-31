@@ -1,3 +1,4 @@
+using $AppName$.Domain;
 using $AppName$.Domain.Implementations;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,5 +1,5 @@
-using $AppName$.Domain;
 using $AppName$.Domain.Abstractions;
+using $AppName$.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

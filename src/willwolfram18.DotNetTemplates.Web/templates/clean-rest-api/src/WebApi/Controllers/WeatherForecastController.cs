@@ -13,11 +13,6 @@ namespace $AppName$.WebApi.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IWeatherService _weatherService;
 
@@ -29,16 +24,20 @@ namespace $AppName$.WebApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return (await _weatherService.GetFiveDayForecastAsync()).Select(MapToApiContract);
+        }
+
+        private static WeatherForecast MapToApiContract(Domain.Models.WeatherForecast model)
+        {
+            return new WeatherForecast
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                Date = model.Date,
+                Summary = model.Summary,
+                TemperatureC = model.TemperatureC,
+                TemperatureF = model.TemperatureF
+            };
         }
     }
 }
