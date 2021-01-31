@@ -1,3 +1,5 @@
+using $AppName$.Domain;
+using $AppName$.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -45,6 +47,9 @@ namespace $AppName$.WebApi
                 openApiSettings.Title = "$AppName$.WebApi";
                 openApiSettings.Version = FileVersionInfo.GetVersionInfo(typeof(Startup).Assembly.Location).ProductVersion;
             });
+
+            services.AddWeatherServices()
+                .AddWeatherForecastRepository();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

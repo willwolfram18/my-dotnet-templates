@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace $AppName$.Domain
 {
-    interface IWeatherService
+    public interface IWeatherService
     {
         Task<IEnumerable<WeatherForecast>> GetFiveDayForecastAsync();
     }
