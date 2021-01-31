@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace $Company$.$Team$.$AppName$.WebApi
+namespace $AppName$.WebApi
 {
     public class Startup
     {

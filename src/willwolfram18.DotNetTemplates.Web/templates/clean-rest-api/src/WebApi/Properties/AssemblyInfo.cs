@@ -1,3 +1,3 @@
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("$Company$.$Team$.$AppName$.WebApi.Tests.Unit")]
+[assembly: InternalsVisibleTo("$AppName$.WebApi.Tests.Unit")]

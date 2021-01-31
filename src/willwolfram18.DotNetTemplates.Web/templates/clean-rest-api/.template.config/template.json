@@ -1,6 +1,6 @@
 {
     "$schema": "http://json.schemastore.org/template",
-    "identity": "willwolfram18.MyDotNetTemplates.Web.CleanRestApi",
+    "identity": "willwolfram18.DotNetTemplates.Web.CleanRestApi",
     "shortName": "clean-rest-api",
     "name": "Clean Architecture REST API",
     "description": "A REST API template, organized in a 'Clean Architecture' style",
@@ -29,19 +29,5 @@
         }
     ],
     "symbols": {
-        "CompanyName": {
-            "type": "parameter",
-            "description": "The name of the company the app is developed for.",
-            "defaultValue": "",
-            "datatype": "text",
-            "replaces": "$Company$."
-        },
-        "TeamName": {
-            "type": "parameter",
-            "description": "The name of the team the application belongs to.",
-            "defaultValue": "",
-            "datatype": "text",
-            "replaces": "$Team$."
-        }
     }
 }

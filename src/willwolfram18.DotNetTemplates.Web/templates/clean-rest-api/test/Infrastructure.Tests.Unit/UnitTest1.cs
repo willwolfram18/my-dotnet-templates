@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace $Company$.$Team$.$AppName$.Infrastructure.Tests.Unit
+namespace $AppName$.Infrastructure.Tests.Unit
 {
     public class Tests
     {

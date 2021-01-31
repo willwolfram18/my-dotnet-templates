@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Domain\$Company$.$Team$.$AppName$.Domain.csproj" />
-    <ProjectReference Include="..\Infrastructure\$Company$.$Team$.$AppName$.Infrastructure.csproj" />
+    <ProjectReference Include="..\Domain\$AppName$.Domain.csproj" />
+    <ProjectReference Include="..\Infrastructure\$AppName$.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

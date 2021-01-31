@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Infrastructure\$Company$.$Team$.$AppName$.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Domain\$AppName$.Domain.csproj" />
   </ItemGroup>
 
 </Project>

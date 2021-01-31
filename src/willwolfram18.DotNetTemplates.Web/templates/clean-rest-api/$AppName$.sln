@@ -5,19 +5,19 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2B05C732-4009-4D88-8EBD-0466A4281AAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$Company$.$Team$.$AppName$.WebApi", "src\WebApi\$Company$.$Team$.$AppName$.WebApi.csproj", "{FE4B8F8E-7D01-441D-8F72-4995FE1BF342}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$AppName$.WebApi", "src\WebApi\$AppName$.WebApi.csproj", "{FE4B8F8E-7D01-441D-8F72-4995FE1BF342}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$Company$.$Team$.$AppName$.Domain", "src\Domain\$Company$.$Team$.$AppName$.Domain.csproj", "{C16500D8-3E5F-44D0-8BE6-E3960410844F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$AppName$.Domain", "src\Domain\$AppName$.Domain.csproj", "{C16500D8-3E5F-44D0-8BE6-E3960410844F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$Company$.$Team$.$AppName$.Infrastructure", "src\Infrastructure\$Company$.$Team$.$AppName$.Infrastructure.csproj", "{290EE4A0-8150-4C50-84D5-0D9222844141}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$AppName$.Infrastructure", "src\Infrastructure\$AppName$.Infrastructure.csproj", "{290EE4A0-8150-4C50-84D5-0D9222844141}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A3E89B41-98DF-48BF-9177-2EB7AE72B9CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$Company$.$Team$.$AppName$.Domain.Tests.Unit", "test\Domain.Tests.Unit\$Company$.$Team$.$AppName$.Domain.Tests.Unit.csproj", "{5664DCFD-17F5-4126-BB7B-D1924057B5A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$AppName$.Domain.Tests.Unit", "test\Domain.Tests.Unit\$AppName$.Domain.Tests.Unit.csproj", "{5664DCFD-17F5-4126-BB7B-D1924057B5A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$Company$.$Team$.$AppName$.Infrastructure.Tests.Unit", "test\Infrastructure.Tests.Unit\$Company$.$Team$.$AppName$.Infrastructure.Tests.Unit.csproj", "{5B4FFCD2-7E99-44C3-B863-9442B2B86464}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$AppName$.Infrastructure.Tests.Unit", "test\Infrastructure.Tests.Unit\$AppName$.Infrastructure.Tests.Unit.csproj", "{5B4FFCD2-7E99-44C3-B863-9442B2B86464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$Company$.$Team$.$AppName$.WebApi.Tests.Unit", "test\WebApi.Tests.Unit\$Company$.$Team$.$AppName$.WebApi.Tests.Unit.csproj", "{5E589496-868C-4DE4-BEA6-DC90666EBE47}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$AppName$.WebApi.Tests.Unit", "test\WebApi.Tests.Unit\$AppName$.WebApi.Tests.Unit.csproj", "{5E589496-868C-4DE4-BEA6-DC90666EBE47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
